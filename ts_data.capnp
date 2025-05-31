@@ -2,8 +2,8 @@
 
 struct TSData {
 
-    time @0 :UInt32;
-    timeBeforeTransmit @1 :UInt32;
+    time @0 :UInt64;
+    timeBeforeTransmit @1 :UInt64;
 
     accessoryBatteryVoltage @2 :Float32;
     accessoryBatteryCurrent @3 :Float32;
@@ -42,7 +42,7 @@ struct TSData {
     sensorSpeed @26 :Float32;
 
     lapNumber @27 :UInt8;
-    lapTime @28 :UInt32;
+    lapTime @28 :UInt64;
 
     gpsAltitude @29 :Float32;
     gpsLatitude @30 :Float32;

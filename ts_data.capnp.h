@@ -63,7 +63,7 @@ struct TSData {
 
 
   struct _capnpPrivate {
-    CAPNP_DECLARE_STRUCT_HEADER(efbb909ba4a1ca94, 16, 0)
+    CAPNP_DECLARE_STRUCT_HEADER(efbb909ba4a1ca94, 18, 0)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand() { return &schema->defaultBrand; }
     #endif  // !CAPNP_LITE
@@ -89,9 +89,9 @@ public:
   }
 #endif  // !CAPNP_LITE
 
-  inline  ::uint32_t getTime() const;
+  inline  ::uint64_t getTime() const;
 
-  inline  ::uint32_t getTimeBeforeTransmit() const;
+  inline  ::uint64_t getTimeBeforeTransmit() const;
 
   inline float getAccessoryBatteryVoltage() const;
 
@@ -145,7 +145,7 @@ public:
 
   inline  ::uint8_t getLapNumber() const;
 
-  inline  ::uint32_t getLapTime() const;
+  inline  ::uint64_t getLapTime() const;
 
   inline float getGpsAltitude() const;
 
@@ -191,11 +191,11 @@ public:
   inline ::kj::StringTree toString() const { return asReader().toString(); }
 #endif  // !CAPNP_LITE
 
-  inline  ::uint32_t getTime();
-  inline void setTime( ::uint32_t value);
+  inline  ::uint64_t getTime();
+  inline void setTime( ::uint64_t value);
 
-  inline  ::uint32_t getTimeBeforeTransmit();
-  inline void setTimeBeforeTransmit( ::uint32_t value);
+  inline  ::uint64_t getTimeBeforeTransmit();
+  inline void setTimeBeforeTransmit( ::uint64_t value);
 
   inline float getAccessoryBatteryVoltage();
   inline void setAccessoryBatteryVoltage(float value);
@@ -275,8 +275,8 @@ public:
   inline  ::uint8_t getLapNumber();
   inline void setLapNumber( ::uint8_t value);
 
-  inline  ::uint32_t getLapTime();
-  inline void setLapTime( ::uint32_t value);
+  inline  ::uint64_t getLapTime();
+  inline void setLapTime( ::uint64_t value);
 
   inline float getGpsAltitude();
   inline void setGpsAltitude(float value);
@@ -330,522 +330,522 @@ private:
 
 // =======================================================================================
 
-inline  ::uint32_t TSData::Reader::getTime() const {
-  return _reader.getDataField< ::uint32_t>(
+inline  ::uint64_t TSData::Reader::getTime() const {
+  return _reader.getDataField< ::uint64_t>(
       ::capnp::bounded<0>() * ::capnp::ELEMENTS);
 }
 
-inline  ::uint32_t TSData::Builder::getTime() {
-  return _builder.getDataField< ::uint32_t>(
+inline  ::uint64_t TSData::Builder::getTime() {
+  return _builder.getDataField< ::uint64_t>(
       ::capnp::bounded<0>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setTime( ::uint32_t value) {
-  _builder.setDataField< ::uint32_t>(
+inline void TSData::Builder::setTime( ::uint64_t value) {
+  _builder.setDataField< ::uint64_t>(
       ::capnp::bounded<0>() * ::capnp::ELEMENTS, value);
 }
 
-inline  ::uint32_t TSData::Reader::getTimeBeforeTransmit() const {
-  return _reader.getDataField< ::uint32_t>(
+inline  ::uint64_t TSData::Reader::getTimeBeforeTransmit() const {
+  return _reader.getDataField< ::uint64_t>(
       ::capnp::bounded<1>() * ::capnp::ELEMENTS);
 }
 
-inline  ::uint32_t TSData::Builder::getTimeBeforeTransmit() {
-  return _builder.getDataField< ::uint32_t>(
+inline  ::uint64_t TSData::Builder::getTimeBeforeTransmit() {
+  return _builder.getDataField< ::uint64_t>(
       ::capnp::bounded<1>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setTimeBeforeTransmit( ::uint32_t value) {
-  _builder.setDataField< ::uint32_t>(
+inline void TSData::Builder::setTimeBeforeTransmit( ::uint64_t value) {
+  _builder.setDataField< ::uint64_t>(
       ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
 }
 
 inline float TSData::Reader::getAccessoryBatteryVoltage() const {
   return _reader.getDataField<float>(
-      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
 }
 
 inline float TSData::Builder::getAccessoryBatteryVoltage() {
   return _builder.getDataField<float>(
-      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
 }
 inline void TSData::Builder::setAccessoryBatteryVoltage(float value) {
-  _builder.setDataField<float>(
-      ::capnp::bounded<2>() * ::capnp::ELEMENTS, value);
-}
-
-inline float TSData::Reader::getAccessoryBatteryCurrent() const {
-  return _reader.getDataField<float>(
-      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
-}
-
-inline float TSData::Builder::getAccessoryBatteryCurrent() {
-  return _builder.getDataField<float>(
-      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
-}
-inline void TSData::Builder::setAccessoryBatteryCurrent(float value) {
-  _builder.setDataField<float>(
-      ::capnp::bounded<3>() * ::capnp::ELEMENTS, value);
-}
-
-inline float TSData::Reader::getFuelCellOutputVoltage() const {
-  return _reader.getDataField<float>(
-      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
-}
-
-inline float TSData::Builder::getFuelCellOutputVoltage() {
-  return _builder.getDataField<float>(
-      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
-}
-inline void TSData::Builder::setFuelCellOutputVoltage(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<4>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getFuelCellOutputCurrent() const {
+inline float TSData::Reader::getAccessoryBatteryCurrent() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<5>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getFuelCellOutputCurrent() {
+inline float TSData::Builder::getAccessoryBatteryCurrent() {
   return _builder.getDataField<float>(
       ::capnp::bounded<5>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setFuelCellOutputCurrent(float value) {
+inline void TSData::Builder::setAccessoryBatteryCurrent(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<5>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getSupercapacitorVoltage() const {
+inline float TSData::Reader::getFuelCellOutputVoltage() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<6>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getSupercapacitorVoltage() {
+inline float TSData::Builder::getFuelCellOutputVoltage() {
   return _builder.getDataField<float>(
       ::capnp::bounded<6>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setSupercapacitorVoltage(float value) {
+inline void TSData::Builder::setFuelCellOutputVoltage(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<6>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getSupercapacitorCurrent() const {
+inline float TSData::Reader::getFuelCellOutputCurrent() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<7>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getSupercapacitorCurrent() {
+inline float TSData::Builder::getFuelCellOutputCurrent() {
   return _builder.getDataField<float>(
       ::capnp::bounded<7>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setSupercapacitorCurrent(float value) {
+inline void TSData::Builder::setFuelCellOutputCurrent(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<7>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getMotorControllerSupplyVoltage() const {
+inline float TSData::Reader::getSupercapacitorVoltage() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<8>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getMotorControllerSupplyVoltage() {
+inline float TSData::Builder::getSupercapacitorVoltage() {
   return _builder.getDataField<float>(
       ::capnp::bounded<8>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setMotorControllerSupplyVoltage(float value) {
+inline void TSData::Builder::setSupercapacitorVoltage(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<8>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getMotorControllerSupplyCurrent() const {
+inline float TSData::Reader::getSupercapacitorCurrent() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<9>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getMotorControllerSupplyCurrent() {
+inline float TSData::Builder::getSupercapacitorCurrent() {
   return _builder.getDataField<float>(
       ::capnp::bounded<9>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setMotorControllerSupplyCurrent(float value) {
+inline void TSData::Builder::setSupercapacitorCurrent(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<9>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getFuelCellEnergyAccumulated() const {
+inline float TSData::Reader::getMotorControllerSupplyVoltage() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<10>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getFuelCellEnergyAccumulated() {
+inline float TSData::Builder::getMotorControllerSupplyVoltage() {
   return _builder.getDataField<float>(
       ::capnp::bounded<10>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setFuelCellEnergyAccumulated(float value) {
+inline void TSData::Builder::setMotorControllerSupplyVoltage(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<10>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getH2PressureLow() const {
+inline float TSData::Reader::getMotorControllerSupplyCurrent() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<11>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getH2PressureLow() {
+inline float TSData::Builder::getMotorControllerSupplyCurrent() {
   return _builder.getDataField<float>(
       ::capnp::bounded<11>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setH2PressureLow(float value) {
+inline void TSData::Builder::setMotorControllerSupplyCurrent(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<11>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getH2PressureFuelCell() const {
+inline float TSData::Reader::getFuelCellEnergyAccumulated() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<12>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getH2PressureFuelCell() {
+inline float TSData::Builder::getFuelCellEnergyAccumulated() {
   return _builder.getDataField<float>(
       ::capnp::bounded<12>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setH2PressureFuelCell(float value) {
+inline void TSData::Builder::setFuelCellEnergyAccumulated(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<12>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getH2PressureHigh() const {
+inline float TSData::Reader::getH2PressureLow() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<13>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getH2PressureHigh() {
+inline float TSData::Builder::getH2PressureLow() {
   return _builder.getDataField<float>(
       ::capnp::bounded<13>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setH2PressureHigh(float value) {
+inline void TSData::Builder::setH2PressureLow(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<13>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getH2LeakageSensorVoltage() const {
+inline float TSData::Reader::getH2PressureFuelCell() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<14>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getH2LeakageSensorVoltage() {
+inline float TSData::Builder::getH2PressureFuelCell() {
   return _builder.getDataField<float>(
       ::capnp::bounded<14>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setH2LeakageSensorVoltage(float value) {
+inline void TSData::Builder::setH2PressureFuelCell(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<14>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getFanDutyCycle() const {
+inline float TSData::Reader::getH2PressureHigh() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<15>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getFanDutyCycle() {
+inline float TSData::Builder::getH2PressureHigh() {
   return _builder.getDataField<float>(
       ::capnp::bounded<15>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setFanDutyCycle(float value) {
+inline void TSData::Builder::setH2PressureHigh(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<15>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getBlowerDutyCycle() const {
+inline float TSData::Reader::getH2LeakageSensorVoltage() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<16>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getBlowerDutyCycle() {
+inline float TSData::Builder::getH2LeakageSensorVoltage() {
   return _builder.getDataField<float>(
       ::capnp::bounded<16>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setBlowerDutyCycle(float value) {
+inline void TSData::Builder::setH2LeakageSensorVoltage(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<16>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getTemperatureFuelCellLocation1() const {
+inline float TSData::Reader::getFanDutyCycle() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<17>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getTemperatureFuelCellLocation1() {
+inline float TSData::Builder::getFanDutyCycle() {
   return _builder.getDataField<float>(
       ::capnp::bounded<17>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setTemperatureFuelCellLocation1(float value) {
+inline void TSData::Builder::setFanDutyCycle(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<17>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getTemperatureFuelCellLocation2() const {
+inline float TSData::Reader::getBlowerDutyCycle() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<18>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getTemperatureFuelCellLocation2() {
+inline float TSData::Builder::getBlowerDutyCycle() {
   return _builder.getDataField<float>(
       ::capnp::bounded<18>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setTemperatureFuelCellLocation2(float value) {
+inline void TSData::Builder::setBlowerDutyCycle(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<18>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getAccelPedalVoltage() const {
+inline float TSData::Reader::getTemperatureFuelCellLocation1() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<19>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getAccelPedalVoltage() {
+inline float TSData::Builder::getTemperatureFuelCellLocation1() {
   return _builder.getDataField<float>(
       ::capnp::bounded<19>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setAccelPedalVoltage(float value) {
+inline void TSData::Builder::setTemperatureFuelCellLocation1(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<19>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getBrakePedalVoltage() const {
+inline float TSData::Reader::getTemperatureFuelCellLocation2() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<20>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getBrakePedalVoltage() {
+inline float TSData::Builder::getTemperatureFuelCellLocation2() {
   return _builder.getDataField<float>(
       ::capnp::bounded<20>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setBrakePedalVoltage(float value) {
+inline void TSData::Builder::setTemperatureFuelCellLocation2(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<20>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getAccelOutputVoltage() const {
+inline float TSData::Reader::getAccelPedalVoltage() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<21>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getAccelOutputVoltage() {
+inline float TSData::Builder::getAccelPedalVoltage() {
   return _builder.getDataField<float>(
       ::capnp::bounded<21>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setAccelOutputVoltage(float value) {
+inline void TSData::Builder::setAccelPedalVoltage(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<21>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getBrakeOutputVoltage() const {
+inline float TSData::Reader::getBrakePedalVoltage() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<22>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getBrakeOutputVoltage() {
+inline float TSData::Builder::getBrakePedalVoltage() {
   return _builder.getDataField<float>(
       ::capnp::bounded<22>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setBrakeOutputVoltage(float value) {
+inline void TSData::Builder::setBrakePedalVoltage(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<22>() * ::capnp::ELEMENTS, value);
 }
 
-inline  ::uint8_t TSData::Reader::getButtonsMasterMask() const {
-  return _reader.getDataField< ::uint8_t>(
-      ::capnp::bounded<92>() * ::capnp::ELEMENTS);
+inline float TSData::Reader::getAccelOutputVoltage() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<23>() * ::capnp::ELEMENTS);
 }
 
-inline  ::uint8_t TSData::Builder::getButtonsMasterMask() {
-  return _builder.getDataField< ::uint8_t>(
-      ::capnp::bounded<92>() * ::capnp::ELEMENTS);
+inline float TSData::Builder::getAccelOutputVoltage() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<23>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setButtonsMasterMask( ::uint8_t value) {
-  _builder.setDataField< ::uint8_t>(
-      ::capnp::bounded<92>() * ::capnp::ELEMENTS, value);
-}
-
-inline  ::uint8_t TSData::Reader::getButtonsSteeringWheelMask() const {
-  return _reader.getDataField< ::uint8_t>(
-      ::capnp::bounded<93>() * ::capnp::ELEMENTS);
+inline void TSData::Builder::setAccelOutputVoltage(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<23>() * ::capnp::ELEMENTS, value);
 }
 
-inline  ::uint8_t TSData::Builder::getButtonsSteeringWheelMask() {
-  return _builder.getDataField< ::uint8_t>(
-      ::capnp::bounded<93>() * ::capnp::ELEMENTS);
-}
-inline void TSData::Builder::setButtonsSteeringWheelMask( ::uint8_t value) {
-  _builder.setDataField< ::uint8_t>(
-      ::capnp::bounded<93>() * ::capnp::ELEMENTS, value);
-}
-
-inline float TSData::Reader::getSensorRpm() const {
+inline float TSData::Reader::getBrakeOutputVoltage() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<24>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getSensorRpm() {
+inline float TSData::Builder::getBrakeOutputVoltage() {
   return _builder.getDataField<float>(
       ::capnp::bounded<24>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setSensorRpm(float value) {
+inline void TSData::Builder::setBrakeOutputVoltage(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<24>() * ::capnp::ELEMENTS, value);
 }
 
+inline  ::uint8_t TSData::Reader::getButtonsMasterMask() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<100>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TSData::Builder::getButtonsMasterMask() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<100>() * ::capnp::ELEMENTS);
+}
+inline void TSData::Builder::setButtonsMasterMask( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<100>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TSData::Reader::getButtonsSteeringWheelMask() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<101>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TSData::Builder::getButtonsSteeringWheelMask() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<101>() * ::capnp::ELEMENTS);
+}
+inline void TSData::Builder::setButtonsSteeringWheelMask( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<101>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TSData::Reader::getSensorRpm() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<26>() * ::capnp::ELEMENTS);
+}
+
+inline float TSData::Builder::getSensorRpm() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<26>() * ::capnp::ELEMENTS);
+}
+inline void TSData::Builder::setSensorRpm(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<26>() * ::capnp::ELEMENTS, value);
+}
+
 inline float TSData::Reader::getSensorSpeed() const {
   return _reader.getDataField<float>(
-      ::capnp::bounded<25>() * ::capnp::ELEMENTS);
+      ::capnp::bounded<27>() * ::capnp::ELEMENTS);
 }
 
 inline float TSData::Builder::getSensorSpeed() {
   return _builder.getDataField<float>(
-      ::capnp::bounded<25>() * ::capnp::ELEMENTS);
+      ::capnp::bounded<27>() * ::capnp::ELEMENTS);
 }
 inline void TSData::Builder::setSensorSpeed(float value) {
-  _builder.setDataField<float>(
-      ::capnp::bounded<25>() * ::capnp::ELEMENTS, value);
-}
-
-inline  ::uint8_t TSData::Reader::getLapNumber() const {
-  return _reader.getDataField< ::uint8_t>(
-      ::capnp::bounded<94>() * ::capnp::ELEMENTS);
-}
-
-inline  ::uint8_t TSData::Builder::getLapNumber() {
-  return _builder.getDataField< ::uint8_t>(
-      ::capnp::bounded<94>() * ::capnp::ELEMENTS);
-}
-inline void TSData::Builder::setLapNumber( ::uint8_t value) {
-  _builder.setDataField< ::uint8_t>(
-      ::capnp::bounded<94>() * ::capnp::ELEMENTS, value);
-}
-
-inline  ::uint32_t TSData::Reader::getLapTime() const {
-  return _reader.getDataField< ::uint32_t>(
-      ::capnp::bounded<26>() * ::capnp::ELEMENTS);
-}
-
-inline  ::uint32_t TSData::Builder::getLapTime() {
-  return _builder.getDataField< ::uint32_t>(
-      ::capnp::bounded<26>() * ::capnp::ELEMENTS);
-}
-inline void TSData::Builder::setLapTime( ::uint32_t value) {
-  _builder.setDataField< ::uint32_t>(
-      ::capnp::bounded<26>() * ::capnp::ELEMENTS, value);
-}
-
-inline float TSData::Reader::getGpsAltitude() const {
-  return _reader.getDataField<float>(
-      ::capnp::bounded<27>() * ::capnp::ELEMENTS);
-}
-
-inline float TSData::Builder::getGpsAltitude() {
-  return _builder.getDataField<float>(
-      ::capnp::bounded<27>() * ::capnp::ELEMENTS);
-}
-inline void TSData::Builder::setGpsAltitude(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<27>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Reader::getGpsLatitude() const {
-  return _reader.getDataField<float>(
-      ::capnp::bounded<28>() * ::capnp::ELEMENTS);
+inline  ::uint8_t TSData::Reader::getLapNumber() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<102>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getGpsLatitude() {
-  return _builder.getDataField<float>(
-      ::capnp::bounded<28>() * ::capnp::ELEMENTS);
+inline  ::uint8_t TSData::Builder::getLapNumber() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<102>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setGpsLatitude(float value) {
-  _builder.setDataField<float>(
-      ::capnp::bounded<28>() * ::capnp::ELEMENTS, value);
-}
-
-inline float TSData::Reader::getGpsLongitude() const {
-  return _reader.getDataField<float>(
-      ::capnp::bounded<29>() * ::capnp::ELEMENTS);
+inline void TSData::Builder::setLapNumber( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<102>() * ::capnp::ELEMENTS, value);
 }
 
-inline float TSData::Builder::getGpsLongitude() {
-  return _builder.getDataField<float>(
-      ::capnp::bounded<29>() * ::capnp::ELEMENTS);
-}
-inline void TSData::Builder::setGpsLongitude(float value) {
-  _builder.setDataField<float>(
-      ::capnp::bounded<29>() * ::capnp::ELEMENTS, value);
+inline  ::uint64_t TSData::Reader::getLapTime() const {
+  return _reader.getDataField< ::uint64_t>(
+      ::capnp::bounded<14>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Reader::getGpsSpeed() const {
+inline  ::uint64_t TSData::Builder::getLapTime() {
+  return _builder.getDataField< ::uint64_t>(
+      ::capnp::bounded<14>() * ::capnp::ELEMENTS);
+}
+inline void TSData::Builder::setLapTime( ::uint64_t value) {
+  _builder.setDataField< ::uint64_t>(
+      ::capnp::bounded<14>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TSData::Reader::getGpsAltitude() const {
   return _reader.getDataField<float>(
       ::capnp::bounded<30>() * ::capnp::ELEMENTS);
 }
 
-inline float TSData::Builder::getGpsSpeed() {
+inline float TSData::Builder::getGpsAltitude() {
   return _builder.getDataField<float>(
       ::capnp::bounded<30>() * ::capnp::ELEMENTS);
 }
-inline void TSData::Builder::setGpsSpeed(float value) {
+inline void TSData::Builder::setGpsAltitude(float value) {
   _builder.setDataField<float>(
       ::capnp::bounded<30>() * ::capnp::ELEMENTS, value);
 }
 
+inline float TSData::Reader::getGpsLatitude() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<31>() * ::capnp::ELEMENTS);
+}
+
+inline float TSData::Builder::getGpsLatitude() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<31>() * ::capnp::ELEMENTS);
+}
+inline void TSData::Builder::setGpsLatitude(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<31>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TSData::Reader::getGpsLongitude() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<32>() * ::capnp::ELEMENTS);
+}
+
+inline float TSData::Builder::getGpsLongitude() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<32>() * ::capnp::ELEMENTS);
+}
+inline void TSData::Builder::setGpsLongitude(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<32>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TSData::Reader::getGpsSpeed() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<33>() * ::capnp::ELEMENTS);
+}
+
+inline float TSData::Builder::getGpsSpeed() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<33>() * ::capnp::ELEMENTS);
+}
+inline void TSData::Builder::setGpsSpeed(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<33>() * ::capnp::ELEMENTS, value);
+}
+
 inline  ::TSData::MasterOperatingState TSData::Reader::getMasterState() const {
   return _reader.getDataField< ::TSData::MasterOperatingState>(
-      ::capnp::bounded<62>() * ::capnp::ELEMENTS);
+      ::capnp::bounded<68>() * ::capnp::ELEMENTS);
 }
 
 inline  ::TSData::MasterOperatingState TSData::Builder::getMasterState() {
   return _builder.getDataField< ::TSData::MasterOperatingState>(
-      ::capnp::bounded<62>() * ::capnp::ELEMENTS);
+      ::capnp::bounded<68>() * ::capnp::ELEMENTS);
 }
 inline void TSData::Builder::setMasterState( ::TSData::MasterOperatingState value) {
   _builder.setDataField< ::TSData::MasterOperatingState>(
-      ::capnp::bounded<62>() * ::capnp::ELEMENTS, value);
+      ::capnp::bounded<68>() * ::capnp::ELEMENTS, value);
 }
 
 inline  ::TSData::ProtiumOperatingState TSData::Reader::getProtiumState() const {
   return _reader.getDataField< ::TSData::ProtiumOperatingState>(
-      ::capnp::bounded<63>() * ::capnp::ELEMENTS);
+      ::capnp::bounded<69>() * ::capnp::ELEMENTS);
 }
 
 inline  ::TSData::ProtiumOperatingState TSData::Builder::getProtiumState() {
   return _builder.getDataField< ::TSData::ProtiumOperatingState>(
-      ::capnp::bounded<63>() * ::capnp::ELEMENTS);
+      ::capnp::bounded<69>() * ::capnp::ELEMENTS);
 }
 inline void TSData::Builder::setProtiumState( ::TSData::ProtiumOperatingState value) {
   _builder.setDataField< ::TSData::ProtiumOperatingState>(
-      ::capnp::bounded<63>() * ::capnp::ELEMENTS, value);
+      ::capnp::bounded<69>() * ::capnp::ELEMENTS, value);
 }
 
 inline bool TSData::Reader::getMainValveEnableOutput() const {
   return _reader.getDataField<bool>(
-      ::capnp::bounded<760>() * ::capnp::ELEMENTS);
+      ::capnp::bounded<824>() * ::capnp::ELEMENTS);
 }
 
 inline bool TSData::Builder::getMainValveEnableOutput() {
   return _builder.getDataField<bool>(
-      ::capnp::bounded<760>() * ::capnp::ELEMENTS);
+      ::capnp::bounded<824>() * ::capnp::ELEMENTS);
 }
 inline void TSData::Builder::setMainValveEnableOutput(bool value) {
   _builder.setDataField<bool>(
-      ::capnp::bounded<760>() * ::capnp::ELEMENTS, value);
+      ::capnp::bounded<824>() * ::capnp::ELEMENTS, value);
 }
 
 inline bool TSData::Reader::getMotorControllerEnableOutput() const {
   return _reader.getDataField<bool>(
-      ::capnp::bounded<761>() * ::capnp::ELEMENTS);
+      ::capnp::bounded<825>() * ::capnp::ELEMENTS);
 }
 
 inline bool TSData::Builder::getMotorControllerEnableOutput() {
   return _builder.getDataField<bool>(
-      ::capnp::bounded<761>() * ::capnp::ELEMENTS);
+      ::capnp::bounded<825>() * ::capnp::ELEMENTS);
 }
 inline void TSData::Builder::setMotorControllerEnableOutput(bool value) {
   _builder.setDataField<bool>(
-      ::capnp::bounded<761>() * ::capnp::ELEMENTS, value);
+      ::capnp::bounded<825>() * ::capnp::ELEMENTS, value);
 }
 
 
